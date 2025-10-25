@@ -1,6 +1,7 @@
 package me.neznamy.tab.shared.proxy.message.incoming;
 
 import com.google.common.io.ByteArrayDataInput;
+import lombok.ToString;
 import me.neznamy.tab.api.placeholder.Placeholder;
 import me.neznamy.tab.api.placeholder.PlayerPlaceholder;
 import me.neznamy.tab.api.placeholder.RelationalPlaceholder;
@@ -9,6 +10,7 @@ import me.neznamy.tab.shared.platform.TabPlayer;
 import me.neznamy.tab.shared.proxy.ProxyTabPlayer;
 import org.jetbrains.annotations.NotNull;
 
+@ToString
 public class UpdatePlaceholder implements IncomingMessage {
 
     private String identifier;

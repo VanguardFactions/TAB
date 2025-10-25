@@ -1,3 +1,5 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 dependencies {
     implementation(projects.shared)
     implementation("org.bstats:bstats-velocity:3.1.0")
@@ -6,6 +8,7 @@ dependencies {
     annotationProcessor("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
     compileOnly("com.github.LeonMangler:PremiumVanishAPI:2.9.0-4")
     compileOnly("net.william278:velocityscoreboardapi:1.0.1")
+    api("org.redisson:redisson:3.45.1")
 }
 
 tasks.compileJava {

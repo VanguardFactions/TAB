@@ -1,6 +1,7 @@
 package me.neznamy.tab.platforms.velocity;
 
 import com.google.inject.Inject;
+import com.vanguardfactions.tab.RedisPlaceholderUpdater;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.event.proxy.ProxyShutdownEvent;
@@ -56,6 +57,7 @@ public class VelocityTAB {
         try {
             TabListEntry.class.getMethod("setShowHat", boolean.class);
             TAB.create(new VelocityPlatform(this));
+            RedisPlaceholderUpdater.initialize();
         } catch (ReflectiveOperationException e) {
             logger.warn("====================================================================================================");
             logger.warn("The plugin requires Velocity build #485 (released on March 30th, 2025) and up to work.");

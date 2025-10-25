@@ -9,6 +9,7 @@ import me.neznamy.tab.shared.config.file.YamlConfigurationFile;
 import me.neznamy.tab.shared.config.file.YamlPropertyConfigurationFile;
 import me.neznamy.tab.shared.config.files.Animations;
 import me.neznamy.tab.shared.config.files.Config;
+import me.neznamy.tab.shared.config.files.Redis;
 import me.neznamy.tab.shared.config.mysql.MySQL;
 import me.neznamy.tab.shared.config.mysql.MySQLGroupConfiguration;
 import me.neznamy.tab.shared.config.mysql.MySQLUserConfiguration;
@@ -35,6 +36,9 @@ public class Configs {
 
     /** animations.yml file */
     private final Animations animations = new Animations();
+
+    // REDIS CONFIG
+    private final Redis redis = new Redis();
 
     //messages.yml file
     private final MessageFile messages = new MessageFile();
