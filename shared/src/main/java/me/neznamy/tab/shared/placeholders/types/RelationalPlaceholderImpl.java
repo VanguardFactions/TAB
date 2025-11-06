@@ -52,14 +52,19 @@ public class RelationalPlaceholderImpl extends TabPlaceholder implements Relatio
     @Override
     public void updateValue(@NonNull me.neznamy.tab.api.TabPlayer viewer, @NonNull me.neznamy.tab.api.TabPlayer target, @Nullable String value) {
         if (hasValueChanged((TabPlayer) viewer, (TabPlayer) target, value)) {
-            for (RefreshableFeature r : TAB.getInstance().getPlaceholderManager().getPlaceholderUsage(identifier)) {
-                TimedCaughtTask task = new TimedCaughtTask(TAB.getInstance().getCpu(), () -> r.refresh((TabPlayer) target, true),
-                        r.getFeatureName(), r.getRefreshDisplayName());
-                if (r instanceof CustomThreaded) {
-                    ((CustomThreaded) r).getCustomThread().execute(task);
-                } else {
-                    task.run();
-                }
+            this.forceUpdateValue(viewer, target, value);
+        }
+    }
+
+    @Override
+    public void forceUpdateValue(me.neznamy.tab.api.@NonNull TabPlayer viewer, me.neznamy.tab.api.@NonNull TabPlayer target, @Nullable String value) {
+        for (RefreshableFeature r : TAB.getInstance().getPlaceholderManager().getPlaceholderUsage(identifier)) {
+            TimedCaughtTask task = new TimedCaughtTask(TAB.getInstance().getCpu(), () -> r.refresh((TabPlayer) target, true),
+                r.getFeatureName(), r.getRefreshDisplayName());
+            if (r instanceof CustomThreaded) {
+                ((CustomThreaded) r).getCustomThread().execute(task);
+            } else {
+                task.run();
             }
         }
     }

@@ -24,6 +24,8 @@ public interface RelationalPlaceholder extends Placeholder {
      */
     void updateValue(@NonNull TabPlayer viewer, @NonNull TabPlayer target, @Nullable String value);
 
+    void forceUpdateValue(@NonNull TabPlayer viewer, @NonNull TabPlayer target, @Nullable String value);
+
     /**
      * Force-updates placeholder value using previously provided update function.
      *
